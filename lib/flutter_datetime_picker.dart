@@ -20,18 +20,18 @@ class DatePicker {
   ///
   /// Display date picker bottom sheet.
   ///
-  static Future<DateTime?> showDatePicker(
-    BuildContext context, {
-    bool showTitleActions: true,
-    DateTime? minTime,
-    DateTime? maxTime,
-    DateChangedCallback? onChanged,
-    DateChangedCallback? onConfirm,
-    DateCancelledCallback? onCancel,
-    locale: LocaleType.en,
-    DateTime? currentTime,
-    DatePickerTheme? theme,
-  }) async {
+  static Future<DateTime?> showDatePicker(BuildContext context,
+      {bool showTitleActions: true,
+      DateTime? minTime,
+      DateTime? maxTime,
+      DateChangedCallback? onChanged,
+      DateChangedCallback? onConfirm,
+      DateCancelledCallback? onCancel,
+      locale: LocaleType.en,
+      DateTime? currentTime,
+      DatePickerTheme? theme,
+      double? squeeze,
+      double? diameterRatio}) async {
     return await Navigator.push(
       context,
       _DatePickerRoute(
@@ -41,6 +41,8 @@ class DatePicker {
         onCancel: onCancel,
         locale: locale,
         theme: theme,
+        squeeze: squeeze,
+        diameterRatio: diameterRatio,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
         pickerModel: DatePickerModel(
@@ -56,17 +58,17 @@ class DatePicker {
   ///
   /// Display time picker bottom sheet.
   ///
-  static Future<DateTime?> showTimePicker(
-    BuildContext context, {
-    bool showTitleActions: true,
-    bool showSecondsColumn: true,
-    DateChangedCallback? onChanged,
-    DateChangedCallback? onConfirm,
-    DateCancelledCallback? onCancel,
-    locale: LocaleType.en,
-    DateTime? currentTime,
-    DatePickerTheme? theme,
-  }) async {
+  static Future<DateTime?> showTimePicker(BuildContext context,
+      {bool showTitleActions: true,
+      bool showSecondsColumn: true,
+      DateChangedCallback? onChanged,
+      DateChangedCallback? onConfirm,
+      DateCancelledCallback? onCancel,
+      locale: LocaleType.en,
+      DateTime? currentTime,
+      DatePickerTheme? theme,
+      double? squeeze,
+      double? diameterRatio}) async {
     return await Navigator.push(
       context,
       _DatePickerRoute(
@@ -76,6 +78,8 @@ class DatePicker {
         onCancel: onCancel,
         locale: locale,
         theme: theme,
+        squeeze: squeeze,
+        diameterRatio: diameterRatio,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
         pickerModel: TimePickerModel(
@@ -90,16 +94,16 @@ class DatePicker {
   ///
   /// Display time picker bottom sheet with AM/PM.
   ///
-  static Future<DateTime?> showTime12hPicker(
-    BuildContext context, {
-    bool showTitleActions: true,
-    DateChangedCallback? onChanged,
-    DateChangedCallback? onConfirm,
-    DateCancelledCallback? onCancel,
-    locale: LocaleType.en,
-    DateTime? currentTime,
-    DatePickerTheme? theme,
-  }) async {
+  static Future<DateTime?> showTime12hPicker(BuildContext context,
+      {bool showTitleActions: true,
+      DateChangedCallback? onChanged,
+      DateChangedCallback? onConfirm,
+      DateCancelledCallback? onCancel,
+      locale: LocaleType.en,
+      DateTime? currentTime,
+      DatePickerTheme? theme,
+      double? squeeze,
+      double? diameterRatio}) async {
     return await Navigator.push(
       context,
       _DatePickerRoute(
@@ -109,6 +113,8 @@ class DatePicker {
         onCancel: onCancel,
         locale: locale,
         theme: theme,
+        squeeze: squeeze,
+        diameterRatio: diameterRatio,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
         pickerModel: Time12hPickerModel(
@@ -122,18 +128,18 @@ class DatePicker {
   ///
   /// Display date&time picker bottom sheet.
   ///
-  static Future<DateTime?> showDateTimePicker(
-    BuildContext context, {
-    bool showTitleActions: true,
-    DateTime? minTime,
-    DateTime? maxTime,
-    DateChangedCallback? onChanged,
-    DateChangedCallback? onConfirm,
-    DateCancelledCallback? onCancel,
-    locale: LocaleType.en,
-    DateTime? currentTime,
-    DatePickerTheme? theme,
-  }) async {
+  static Future<DateTime?> showDateTimePicker(BuildContext context,
+      {bool showTitleActions: true,
+      DateTime? minTime,
+      DateTime? maxTime,
+      DateChangedCallback? onChanged,
+      DateChangedCallback? onConfirm,
+      DateCancelledCallback? onCancel,
+      locale: LocaleType.en,
+      DateTime? currentTime,
+      DatePickerTheme? theme,
+      double? squeeze,
+      double? diameterRatio}) async {
     return await Navigator.push(
       context,
       _DatePickerRoute(
@@ -143,6 +149,8 @@ class DatePicker {
         onCancel: onCancel,
         locale: locale,
         theme: theme,
+        squeeze: squeeze,
+        diameterRatio: diameterRatio,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
         pickerModel: DateTimePickerModel(
@@ -158,16 +166,16 @@ class DatePicker {
   ///
   /// Display date picker bottom sheet witch custom picker model.
   ///
-  static Future<DateTime?> showPicker(
-    BuildContext context, {
-    bool showTitleActions: true,
-    DateChangedCallback? onChanged,
-    DateChangedCallback? onConfirm,
-    DateCancelledCallback? onCancel,
-    locale: LocaleType.en,
-    BasePickerModel? pickerModel,
-    DatePickerTheme? theme,
-  }) async {
+  static Future<DateTime?> showPicker(BuildContext context,
+      {bool showTitleActions: true,
+      DateChangedCallback? onChanged,
+      DateChangedCallback? onConfirm,
+      DateCancelledCallback? onCancel,
+      locale: LocaleType.en,
+      BasePickerModel? pickerModel,
+      DatePickerTheme? theme,
+      double? squeeze,
+      double? diameterRatio}) async {
     return await Navigator.push(
       context,
       _DatePickerRoute(
@@ -177,6 +185,8 @@ class DatePicker {
         onCancel: onCancel,
         locale: locale,
         theme: theme,
+        squeeze: squeeze,
+        diameterRatio: diameterRatio,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
         pickerModel: pickerModel,
@@ -186,17 +196,19 @@ class DatePicker {
 }
 
 class _DatePickerRoute<T> extends PopupRoute<T> {
-  _DatePickerRoute({
-    this.showTitleActions,
-    this.onChanged,
-    this.onConfirm,
-    this.onCancel,
-    DatePickerTheme? theme,
-    this.barrierLabel,
-    this.locale,
-    RouteSettings? settings,
-    BasePickerModel? pickerModel,
-  })  : this.pickerModel = pickerModel ?? DatePickerModel(),
+  _DatePickerRoute(
+      {this.showTitleActions,
+      this.onChanged,
+      this.onConfirm,
+      this.onCancel,
+      DatePickerTheme? theme,
+      this.barrierLabel,
+      this.locale,
+      RouteSettings? settings,
+      BasePickerModel? pickerModel,
+      this.squeeze,
+      this.diameterRatio})
+      : this.pickerModel = pickerModel ?? DatePickerModel(),
         this.theme = theme ?? DatePickerTheme(),
         super(settings: settings);
 
@@ -207,6 +219,8 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
   final LocaleType? locale;
   final DatePickerTheme theme;
   final BasePickerModel pickerModel;
+  final double? squeeze;
+  final double? diameterRatio;
 
   @override
   Duration get transitionDuration => const Duration(milliseconds: 200);
@@ -237,11 +251,12 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
       context: context,
       removeTop: true,
       child: _DatePickerComponent(
-        onChanged: onChanged,
-        locale: this.locale,
-        route: this,
-        pickerModel: pickerModel,
-      ),
+          onChanged: onChanged,
+          locale: this.locale,
+          route: this,
+          pickerModel: pickerModel,
+          squeeze: this.squeeze,
+          diameterRatio: this.diameterRatio),
     );
     return InheritedTheme.captureAll(context, bottomSheet);
   }
@@ -254,6 +269,8 @@ class _DatePickerComponent extends StatefulWidget {
     required this.pickerModel,
     this.onChanged,
     this.locale,
+    this.squeeze = 1.45,
+    this.diameterRatio = 1.1,
   }) : super(key: key);
 
   final DateChangedCallback? onChanged;
@@ -263,6 +280,10 @@ class _DatePickerComponent extends StatefulWidget {
   final LocaleType? locale;
 
   final BasePickerModel pickerModel;
+
+  final double? squeeze;
+
+  final double? diameterRatio;
 
   @override
   State<StatefulWidget> createState() {
@@ -351,7 +372,7 @@ class _DatePickerState extends State<_DatePickerComponent> {
     return Expanded(
       flex: layoutProportion,
       child: Container(
-        padding: EdgeInsets.all(8.0),
+        // padding: EdgeInsets.all(8.0),
         height: theme.containerHeight,
         decoration: BoxDecoration(color: theme.backgroundColor),
         child: NotificationListener(
@@ -368,13 +389,33 @@ class _DatePickerState extends State<_DatePickerComponent> {
           },
           child: CupertinoPicker.builder(
             key: key,
+            squeeze: widget.squeeze != null ? widget.squeeze! : 1.1,
+            diameterRatio:
+                widget.diameterRatio != null ? widget.diameterRatio! : 1.45,
             backgroundColor: theme.backgroundColor,
+            selectionOverlay: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    height: 1,
+                    // width: 10,
+                    decoration: BoxDecoration(color: Color(0xFFE2E4EA)),
+                  ),
+                  Container(
+                    height: 1,
+                    // width: 10,
+                    decoration: BoxDecoration(color: Color(0xFFE2E4EA)),
+                  )
+                ],
+              ),
+            ),
             scrollController: scrollController as FixedExtentScrollController,
             itemExtent: theme.itemHeight,
             onSelectedItemChanged: (int index) {
               selectedChangedWhenScrolling(index);
             },
-            useMagnifier: true,
+            // useMagnifier: true,
             itemBuilder: (BuildContext context, int index) {
               final content = stringAtIndexCB(index);
               if (content == null) {
@@ -398,76 +439,79 @@ class _DatePickerState extends State<_DatePickerComponent> {
 
   Widget _renderItemView(DatePickerTheme theme) {
     return Container(
-      color: theme.backgroundColor,
-      child: Directionality(
-        textDirection: TextDirection.ltr,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Container(
-              child: widget.pickerModel.layoutProportions()[0] > 0
-                  ? _renderColumnView(
-                      ValueKey(widget.pickerModel.currentLeftIndex()),
-                      theme,
-                      widget.pickerModel.leftStringAtIndex,
-                      leftScrollCtrl,
-                      widget.pickerModel.layoutProportions()[0], (index) {
-                      widget.pickerModel.setLeftIndex(index);
-                    }, (index) {
-                      setState(() {
-                        refreshScrollOffset();
-                        _notifyDateChanged();
-                      });
-                    })
-                  : null,
-            ),
-            Text(
-              widget.pickerModel.leftDivider(),
-              style: theme.itemStyle,
-            ),
-            Container(
-              child: widget.pickerModel.layoutProportions()[1] > 0
-                  ? _renderColumnView(
-                      ValueKey(widget.pickerModel.currentLeftIndex()),
-                      theme,
-                      widget.pickerModel.middleStringAtIndex,
-                      middleScrollCtrl,
-                      widget.pickerModel.layoutProportions()[1], (index) {
-                      widget.pickerModel.setMiddleIndex(index);
-                    }, (index) {
-                      setState(() {
-                        refreshScrollOffset();
-                        _notifyDateChanged();
-                      });
-                    })
-                  : null,
-            ),
-            Text(
-              widget.pickerModel.rightDivider(),
-              style: theme.itemStyle,
-            ),
-            Container(
-              child: widget.pickerModel.layoutProportions()[2] > 0
-                  ? _renderColumnView(
-                      ValueKey(widget.pickerModel.currentMiddleIndex() * 100 +
-                          widget.pickerModel.currentLeftIndex()),
-                      theme,
-                      widget.pickerModel.rightStringAtIndex,
-                      rightScrollCtrl,
-                      widget.pickerModel.layoutProportions()[2], (index) {
-                      widget.pickerModel.setRightIndex(index);
-                    }, (index) {
-                      setState(() {
-                        refreshScrollOffset();
-                        _notifyDateChanged();
-                      });
-                    })
-                  : null,
-            ),
-          ],
-        ),
-      ),
-    );
+        padding: EdgeInsets.only(left: 8, right: 8),
+        color: theme.backgroundColor,
+        child: Directionality(
+            textDirection: TextDirection.ltr,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    child: widget.pickerModel.layoutProportions()[0] > 0
+                        ? _renderColumnView(
+                            ValueKey(widget.pickerModel.currentLeftIndex()),
+                            theme,
+                            widget.pickerModel.leftStringAtIndex,
+                            leftScrollCtrl,
+                            widget.pickerModel.layoutProportions()[0], (index) {
+                            widget.pickerModel.setLeftIndex(index);
+                          }, (index) {
+                            setState(() {
+                              refreshScrollOffset();
+                              _notifyDateChanged();
+                            });
+                          })
+                        : null,
+                  ),
+                  widget.pickerModel.leftDivider() != ""
+                      ? Container(
+                          padding: EdgeInsets.only(left: 8, right: 8),
+                          child: Text(widget.pickerModel.leftDivider(),
+                              style: theme.itemStyle))
+                      : Container(),
+                  Container(
+                      child: widget.pickerModel.layoutProportions()[1] > 0
+                          ? _renderColumnView(
+                              ValueKey(widget.pickerModel.currentLeftIndex()),
+                              theme,
+                              widget.pickerModel.middleStringAtIndex,
+                              middleScrollCtrl,
+                              widget.pickerModel.layoutProportions()[1],
+                              (index) {
+                              widget.pickerModel.setMiddleIndex(index);
+                            }, (index) {
+                              setState(() {
+                                refreshScrollOffset();
+                                _notifyDateChanged();
+                              });
+                            })
+                          : null),
+                  widget.pickerModel.rightDivider() != ""
+                      ? Container(
+                          padding: EdgeInsets.only(left: 8, right: 8),
+                          child: Text(widget.pickerModel.rightDivider(),
+                              style: theme.itemStyle))
+                      : Container(),
+                  Container(
+                      child: widget.pickerModel.layoutProportions()[2] > 0
+                          ? _renderColumnView(
+                              ValueKey(widget.pickerModel.currentMiddleIndex() *
+                                      100 +
+                                  widget.pickerModel.currentLeftIndex()),
+                              theme,
+                              widget.pickerModel.rightStringAtIndex,
+                              rightScrollCtrl,
+                              widget.pickerModel.layoutProportions()[2],
+                              (index) {
+                              widget.pickerModel.setRightIndex(index);
+                            }, (index) {
+                              setState(() {
+                                refreshScrollOffset();
+                                _notifyDateChanged();
+                              });
+                            })
+                          : null),
+                ])));
   }
 
   // Title View
